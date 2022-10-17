@@ -38,15 +38,6 @@ else
 builder.Services.AddDbContext<ToDoDemoContext>(options =>
    options.UseNpgsql(defaultConnectionString));
 
-var serviceProvider = builder.Services.BuildServiceProvider();
-try
-{
-    var dbContext = serviceProvider.GetRequiredService<ToDoDemoContext>();
-    dbContext.Database.Migrate();
-}
-catch
-{
-}
 // Add services to the container.
 
 builder.Services.AddControllers();
